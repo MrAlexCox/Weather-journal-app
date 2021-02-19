@@ -16,38 +16,54 @@ let newDate = d.getMonth()+'.'+ d.getDate()+'.'+ d.getFullYear();
   //   console.log(data))
   // .catch(error => console.error(error));
 
-async function getCities() {
-  let results = fetch('../city-list.json', {mode: 'no-cors'})
-          .then(response => response.text())
-          .then(data=>
 
-            console.log('hello'))
-          .catch(error => console.error(error));
-  let cities = data;
-  console.log(cities);
+//check if city name is in list
+
+//return city key
+
+//append weather + text to text area
+
+
+
+// const el = document.getElementById("generate");
+// el.addEventListener("click", citySearch, false);
+
+async function getCities() {
+  let results = fetch('./city-list.json', {mode: 'no-cors'})
+          .then((response) => {
+            response.text()
+          })
+          .then((data)=> {
+            console.log('data')
+
+            console.log('hello')
+          })
+          .catch((error) => {
+            console.error(error)
+          });
+
+  // let cities = data;
+  // console.log(cities);
 
   return results
+  console.log('results')
 
-}
-
-var cities = getCities();
-
-function cityList(){
-  console.log(cities)
 };
 
-// function citySearch() {
-//     var flag = false;
-//     userInput = document.getElementById("userCity").value;
-//     for (var i = 0; i < cityNames.length; i++) {
-//         if (userInput === cityNames[i].innerHTML) {
-//             movies[i].style.backgroundColor = "yellow";
-//             flag = true;
-//         } else {
-//             movies[i].style.backgroundColor = "white";
-//         }
-//     }
-//     if(flag == false) {
-//         alert("No such city was found. Please check your spelling.");
-//     }
-// };
+
+
+function citySearch() {
+    var flag = false;
+    userInput = document.getElementById("userCity").value;
+    for (var i = 0; i < cityNames.length; i++) {
+        if (userInput === cityNames[i].innerHTML) {
+            movies[i].style.backgroundColor = "yellow";
+            flag = true;
+        } else {
+            movies[i].style.backgroundColor = "white";
+        }
+    }
+    if(flag == false) {
+        alert("No such city was found. Please check your spelling.");
+    }
+};
